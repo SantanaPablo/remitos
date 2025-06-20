@@ -1,0 +1,35 @@
+﻿@page
+@model RemitoModel
+    ViewData["Title"] = "Lista de Remitos";
+}
+
+<h1>Remitos</h1>
+
+<form method="get">
+    <input type="text" name="filtro" value="@Model.Filtro" placeholder="Buscar por número o destino" />
+    <button type="submit">Buscar</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Fecha</th>
+            <th>Destino</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var remito in Model.Remitos)
+        {
+                <tr>
+                    <td>@remito.Numero</td>
+                    <td>@remito.Fecha.ToShortDateString()</td>
+                    <td>@remito.Destino</td>
+                    <td>
+                        <a asp-page="Detalle" asp-route-id="@remito.Id">Ver Detalle</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

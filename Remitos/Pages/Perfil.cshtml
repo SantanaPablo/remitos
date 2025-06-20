@@ -1,0 +1,43 @@
+﻿@page
+@model PerfilModel
+@{
+    ViewData["Title"] = "Perfil de Usuario";
+}
+
+<h2>Perfil de Usuario</h2>
+
+<div class="mb-4">
+    <p><strong>Nombre:</strong> @Model.NombreUsuario</p>
+    <p><strong>Legajo:</strong> @Model.Legajo</p>
+</div>
+
+@if (TempData["MensajeExito"] != null)
+{
+    <div class="alert alert-success">@TempData["MensajeExito"]</div>
+}
+
+<h4>Cambiar contraseña</h4>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Contraseña actual</label>
+        <input type="password" asp-for="Cambio.ContrasenaActual" class="form-control" required />
+        <span asp-validation-for="Cambio.ContrasenaActual" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nueva contraseña</label>
+        <input type="password" asp-for="Cambio.NuevaContrasena" class="form-control" required />
+        <span asp-validation-for="Cambio.NuevaContrasena" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Repetir nueva contraseña</label>
+        <input type="password" asp-for="Cambio.RepetirContrasena" class="form-control" required />
+        <span asp-validation-for="Cambio.RepetirContrasena" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar contraseña</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

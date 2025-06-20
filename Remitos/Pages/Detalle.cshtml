@@ -1,0 +1,55 @@
+﻿@page "{id:int}"
+@model DetalleModel
+
+@{
+    ViewData["Title"] = "Detalle del Remito";
+}
+
+<h2>Remito @Model.Remito.Numero</h2>
+
+<p><strong>Destino:</strong> @Model.Remito.Destino</p>
+<p><strong>Fecha:</strong> @Model.Remito.Fecha.ToString("dd/MM/yyyy")</p>
+
+<h3>Ítems</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Descripción</th>
+            <th>Serial</th>
+            <th>Usuario</th>
+            <th>Cantidad</th>
+            <th>Detalle</th>
+            <th>Recibido Por</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.numero_item</td>
+                <td>@item.descripcion</td>
+                <td>@item.serial</td>
+                <td>@item.usuario</td>
+                <td>@item.cantidad</td>
+                <td>@item.detalle</td>
+                <td>@item.recibido_por</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mt-4">
+    <a asp-page="Index" class="btn btn-secondary">Volver a la lista</a>
+    <a asp-page-handler="VerPdf" asp-route-id="@Model.Remito.Id"
+       class="btn btn-primary" target="_blank">
+        <i class="bi bi-file-earmark-pdf"></i> Generar PDF
+    </a>
+
+    <!-- Opción para ver directamente si prefieres -->
+    <a href="/pdf/remito_@(Model.Remito.Id).pdf"
+       class="btn btn-info" target="_blank">
+        <i class="bi bi-eye"></i> Ver PDF Generado
+    </a>
+</div>

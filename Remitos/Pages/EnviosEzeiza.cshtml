@@ -1,0 +1,59 @@
+﻿@page
+@model EnviosEzeizaModel
+@{
+    ViewData["Title"] = "Buscar Envíos Ezeiza";
+}
+
+<h2>Buscar Envíos Ezeiza</h2>
+
+<form method="post" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="TextoBusqueda" class="form-control"
+               placeholder="Serial, usuario o reserva SAP" required
+               value="@Model.TextoBusqueda" />
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.MensajeError))
+{
+    @* <div class="alert alert-danger">@Model.MensajeError</div> *@
+}
+
+@if (Model.Resultados.Any())
+{
+    <div class="alert alert-success">@Model.Resultados.Count resultado(s) encontrados:</div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Archivo</th>
+                <th>Fila</th>
+                <th>N° Envío</th>
+                <th>Usuario</th>
+                <th>Serial</th>
+                <th>Reserva SAP</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Resultados)
+            {
+                <tr>
+                    <td>@item.archivo</td>
+                    <td>@item.fila</td>
+                    <td>@item.numero_envio</td>
+                    <td>@item.usuario</td>
+                    <td>@item.serial_encontrado</td>
+                    <td>@item.reserva_sap</td>
+                    <td>@item.cantidad</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.BusquedaRealizada)
+{
+    <div class="alert alert-warning">No se encontraron resultados.</div>
+}
+
+
