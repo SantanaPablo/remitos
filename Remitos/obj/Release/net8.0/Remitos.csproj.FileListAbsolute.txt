@@ -175,3 +175,4 @@ C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\refint\Remitos.dll
 C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\Remitos.pdb
 C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\Remitos.genruntimeconfig.cache
 C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\ref\Remitos.dll
+C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\Remitos.sourcelink.json

@@ -20,3 +20,29 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Oculta todos los elementos por defecto al imprimir */
+@media print {
+    body *
+
+{
+    visibility: hidden;
+}
+
+/* Muestra solo la sección de impresión */
+.print-content, .print-content * {
+    visibility: visible;
+}
+
+.no-print {
+    display: none !important;
+}
+
+.print-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+}

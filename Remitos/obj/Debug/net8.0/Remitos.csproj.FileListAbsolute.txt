@@ -448,3 +448,4 @@ E:\Remitos\Remitos\obj\Debug\net8.0\Remitos.pdb
 E:\Remitos\Remitos\obj\Debug\net8.0\Remitos.genruntimeconfig.cache
 E:\Remitos\Remitos\obj\Debug\net8.0\ref\Remitos.dll
 C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Debug\net8.0\Remitos.sourcelink.json

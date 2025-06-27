@@ -1406,6 +1406,7 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\pdf\LOGO.png
 wwwroot\pdf\nota_salida.pdf
 wwwroot\pdf\plantilla_remito.pdf
 wwwroot\pdf\remito_1.pdf
