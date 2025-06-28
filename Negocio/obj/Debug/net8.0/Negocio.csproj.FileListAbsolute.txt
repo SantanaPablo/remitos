@@ -73,3 +73,4 @@ E:\Remitos\Negocio\obj\Debug\net8.0\Negocio.dll
 E:\Remitos\Negocio\obj\Debug\net8.0\refint\Negocio.dll
 E:\Remitos\Negocio\obj\Debug\net8.0\Negocio.pdb
 E:\Remitos\Negocio\obj\Debug\net8.0\ref\Negocio.dll
+C:\Users\USUARIO\Desktop\Remitos\Negocio\obj\Debug\net8.0\Negocio.sourcelink.json

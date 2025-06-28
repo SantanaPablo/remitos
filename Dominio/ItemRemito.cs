@@ -11,13 +11,15 @@ namespace Dominio
 
         public int numero_item { get; set; }
 
+        [Required(ErrorMessage = "La descripción es obligatoria")]
         public string descripcion { get; set; }
 
         public string serial { get; set; }
 
         public string usuario { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La cantidad es obligatoria")]
+        [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser mayor a 0")]
         public int cantidad { get; set; }
 
         public string detalle { get; set; }
@@ -27,6 +29,6 @@ namespace Dominio
         public int id_remito { get; set; }
 
         [ForeignKey("id_remito")]
-        public Remito Remito { get; set; }
+        public Remito? Remito { get; set; }
     }
 }

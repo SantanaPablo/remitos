@@ -14,57 +14,79 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
             <div class="container">
-                @if (User.Identity.IsAuthenticated)
-                {
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Salidas</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold" asp-page="/Index">
+                    ✈️ Salidas
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Salidas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Entradas">Entradas</a>
-                        </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/EnviosEzeiza">Envios de Ezeiza</a>
-                            </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                    
-                        <span class="navbar-text me-2">
-                            @User.Identity.Name</span>
-                            <a asp-page="/Perfil" class="btn btn-outline-secondary btn-sm me-2">Perfil</a>
-                            <form method="post" asp-page="/Logout" asp-area="" class="d-inline">
-                                <button type="submit" class="btn btn-link nav-link">Cerrar sesión</button>
-                              </form>
 
-                    }
-                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Index">
+                                    <i class="bi bi-box-arrow-up"></i> Salidas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Remitos">
+                                    <i class="bi bi-file-earmark-text"></i> Remitos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Entradas">
+                                    <i class="bi bi-box-arrow-in-down"></i> Entradas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/EnviosEzeiza">
+                                    <i class="bi bi-truck"></i> Envíos Ezeiza
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://10.35.144.252" target="_blank">
+                                    <i class="bi bi-truck"></i> Monitor de Impresoras 🖶
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="d-flex align-items-center">
+                            <span class="text-light me-3">
+                                <i class="bi bi-person-circle"></i> @User.Identity.Name
+                            </span>
+
+                            <a asp-page="/Perfil" class="btn btn-outline-light btn-sm me-2">
+                                <i class="bi bi-gear"></i> Perfil
+                            </a>
+
+                            <form method="post" asp-page="/Logout" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-box-arrow-right"></i> Salir
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 }
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container-fluid">
+        <main role="main" class="flex-grow-1 container py-4">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Remitos - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    <footer class="footer bg-dark text-light border-top"> <!-- Quita fixed-bottom -->
+    <div class="container text-center">
+        <small>&copy; 2025 - Sistema de Remitos - <a class="text-light text-decoration-underline" asp-page="/Privacy">Política de Privacidad</a></small>
+    </div>
+</footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

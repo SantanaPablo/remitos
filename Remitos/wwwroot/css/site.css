@@ -18,31 +18,75 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    padding-bottom: 60px;
 }
+
 
 /* Oculta todos los elementos por defecto al imprimir */
 @media print {
-    body *
+    /* Ocultar todo excepto la zona de impresión */
+    body * {
+        visibility: hidden;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-{
-    visibility: hidden;
-}
+    .print-content, .print-content * {
+        visibility: visible;
+    }
 
-/* Muestra solo la sección de impresión */
-.print-content, .print-content * {
-    visibility: visible;
-}
+    .no-print {
+        display: none !important;
+    }
 
-.no-print {
-    display: none !important;
-}
+    .print-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-.print-content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-}
+    /* Evita que la tabla se corte entre páginas */
+    table {
+        page-break-inside: avoid !important;
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
 
+    /* Asegura que columnas de Bootstrap no colapsen */
+    .row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .col-md-3, .col-md-4, .col-md-6, .col-md-12 {
+        flex: 0 0 auto !important;
+        width: auto !important;
+    }
+
+    [class*="col-"] {
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+
+    /* Eliminar bordes/sombras innecesarios */
+    .btn:focus, .btn:active:focus, .btn-link.nav-link:focus,
+    .form-control:focus, .form-check-input:focus {
+        box-shadow: none !important;
+    }
+
+    /* Tamaño de fuente compacto */
+    html {
+        font-size: 12px !important;
+    }
+
+    /* Líneas divisorias claras */
+    hr {
+        border-top: 1px solid #000 !important;
+        margin: 5px 0 !important;
+        height: 1px;
+        background: transparent !important;
+    }
 }

@@ -58,3 +58,4 @@ E:\Remitos\Dominio\obj\Debug\net8.0\Dominio.dll
 E:\Remitos\Dominio\obj\Debug\net8.0\refint\Dominio.dll
 E:\Remitos\Dominio\obj\Debug\net8.0\Dominio.pdb
 E:\Remitos\Dominio\obj\Debug\net8.0\ref\Dominio.dll
+C:\Users\USUARIO\Desktop\Remitos\Dominio\obj\Debug\net8.0\Dominio.sourcelink.json

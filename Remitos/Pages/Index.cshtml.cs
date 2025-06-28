@@ -57,22 +57,22 @@ public class IndexModel : PageModel
             .ToListAsync();
     }
 
-    public IActionResult OnPostGenerarPdf(int notaId)
-    {
-        var nota = _context.NotasSalida
-        .Include(n => n.Autorizante)
-        .FirstOrDefault(n => n.Id == notaId);
-        if (nota == null) return NotFound();
+    //public IActionResult OnPostGenerarPdf(int notaId)
+    //{
+    //    var nota = _context.NotasSalida
+    //    .Include(n => n.Autorizante)
+    //    .FirstOrDefault(n => n.Id == notaId);
+    //    if (nota == null) return NotFound();
 
-        var items = _context.ItemsSalida.Where(i => i.NotaSalidaId == notaId).ToList();
+    //    var items = _context.ItemsSalida.Where(i => i.NotaSalidaId == notaId).ToList();
 
-        string rutaPlantilla = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot", "pdf", "nota_salida.pdf");
-        var generador = new GenerarPDFSalida();
-        Usuario = nota.Autorizante;
-        byte[] pdfBytes = generador.GenerarRemitoEnMemoria(nota, items, rutaPlantilla);
+    //    string rutaPlantilla = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot", "pdf", "nota_salida.pdf");
+    //    var generador = new GenerarPDFSalida();
+    //    Usuario = nota.Autorizante;
+    //    byte[] pdfBytes = generador.GenerarRemitoEnMemoria(nota, items, rutaPlantilla);
 
-        string nombreArchivo = $"Remito_{nota.Fecha:yyyyMMdd}_{nota.Id}.pdf";
-        return File(pdfBytes, "application/pdf", nombreArchivo);
-    }
+    //    string nombreArchivo = $"Remito_{nota.Fecha:yyyyMMdd}_{nota.Id}.pdf";
+    //    return File(pdfBytes, "application/pdf", nombreArchivo);
+    //}
    
 }

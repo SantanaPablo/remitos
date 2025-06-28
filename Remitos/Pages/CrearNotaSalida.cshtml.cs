@@ -104,7 +104,7 @@ public class CrearNotaSalidaModel : PageModel
 
         LimpiarSession();
 
-        return RedirectToPage("Index");
+        return RedirectToPage("VerNotaSalida", new { id = Nota.Id });
     }
 
     private void CargarListas()

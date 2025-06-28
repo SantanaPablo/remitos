@@ -10,16 +10,15 @@ namespace Dominio
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El número es obligatorio")]
         public string Numero { get; set; }
 
-        [Required]
-        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "La fecha es obligatoria")]
         public DateTime Fecha { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El destino es obligatorio")]
         public string Destino { get; set; }
 
-        public List<ItemRemito> Items { get; set; }
+        public List<ItemRemito> Items { get; set; } = new List<ItemRemito>();
     }
 }

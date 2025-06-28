@@ -17,12 +17,20 @@ namespace Negocio
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Clave única compuesta en ItemRemito
+          
+            modelBuilder.Entity<ItemRemito>()
+                .HasOne(i => i.Remito)
+                .WithMany(r => r.Items)
+                .HasForeignKey(i => i.id_remito)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired(false);
+
+           
             modelBuilder.Entity<ItemRemito>()
                 .HasIndex(i => new { i.serial, i.id_remito })
                 .IsUnique();
 
-            // Relaciones en Notas de salida
+
             modelBuilder.Entity<NotaSalida>()
                 .HasOne(n => n.Autorizante)
                 .WithMany()
