@@ -24,7 +24,6 @@ body {
 
 /* Oculta todos los elementos por defecto al imprimir */
 @media print {
-    /* Ocultar todo excepto la zona de impresión */
     body * {
         visibility: hidden;
         margin: 0 !important;
@@ -44,49 +43,73 @@ body {
         left: 0;
         top: 0;
         width: 100%;
-        margin: 0 !important;
+        margin: 0 auto !important;
         padding: 0 !important;
     }
 
-    /* Evita que la tabla se corte entre páginas */
+    html {
+        font-size: 12px !important;
+    }
+
+    /* --- ENCABEZADO --- */
+    .print-content .row.encabezado {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+    }
+
+        .print-content .row.encabezado .col-md-3 {
+            width: 25% !important;
+            text-align: left !important;
+        }
+
+        .print-content .row.encabezado .col-md-6 {
+            width: 50% !important;
+            text-align: center !important;
+        }
+
+        .print-content .row.encabezado .col-md-3.text-end {
+            width: 25% !important;
+            text-align: right !important;
+        }
+
+        .print-content .row.encabezado img {
+            display: block !important;
+            max-height: 40px !important;
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+
+    /* --- REMITENTE --- */
+    .print-content .row.datos-remitente,
+    .print-content .row.datos-destinatario {
+        display: flex !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+    }
+
+        .print-content .row.datos-remitente .col-md-6,
+        .print-content .row.datos-destinatario .col-md-6 {
+            width: 49% !important;
+        }
+
+    /* --- TABLA --- */
     table {
         page-break-inside: avoid !important;
         table-layout: fixed;
         word-wrap: break-word;
     }
 
-    /* Asegura que columnas de Bootstrap no colapsen */
-    .row {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-    }
-
-    .col-md-3, .col-md-4, .col-md-6, .col-md-12 {
-        flex: 0 0 auto !important;
-        width: auto !important;
-    }
-
-    [class*="col-"] {
-        padding-left: 4px !important;
-        padding-right: 4px !important;
-    }
-
-    /* Eliminar bordes/sombras innecesarios */
-    .btn:focus, .btn:active:focus, .btn-link.nav-link:focus,
-    .form-control:focus, .form-check-input:focus {
-        box-shadow: none !important;
-    }
-
-    /* Tamaño de fuente compacto */
-    html {
-        font-size: 12px !important;
-    }
-
-    /* Líneas divisorias claras */
+    /* --- OTROS --- */
     hr {
         border-top: 1px solid #000 !important;
         margin: 5px 0 !important;
         height: 1px;
         background: transparent !important;
+    }
+
+    .btn:focus, .btn:active:focus,
+    .form-control:focus, .form-check-input:focus {
+        box-shadow: none !important;
     }
 }
