@@ -1,41 +1,67 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     padding-bottom: 60px;
 }
 
+/* --- SECCIÓN FIRMAS --- */
+.print-content .row.firma-final {
+    display: none;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    margin-top: 20px !important;
+    font-size: 11px !important;
+}
 
-/* Oculta todos los elementos por defecto al imprimir */
+    .print-content .row.firma-final .col-6 {
+        width: 48% !important;
+    }
+
+/* --- IMPRESIÓN --- */
 @media print {
+    /* Reset general */
+    body, html {
+        margin: 0 !important;
+        padding: 0 !important;
+       /* font-family: Arial, sans-serif !important;*/
+    }
+
+    /*@page {
+        margin: 10mm 10mm 10mm 10mm;*/ /* Margen inferior más grande para firmas */
+        /*size: portrait;
+    }*/
+
+    /* Ocultar elementos no imprimibles */
     body * {
         visibility: hidden;
         margin: 0 !important;
         padding: 0 !important;
     }
 
-    .print-content, .print-content * {
-        visibility: visible;
-    }
-
     .no-print {
         display: none !important;
+    }
+
+    /* Mostrar solo el contenido a imprimir */
+    .print-content, .print-content * {
+        visibility: visible;
     }
 
     .print-content {
@@ -45,6 +71,7 @@ body {
         width: 100%;
         margin: 0 auto !important;
         padding: 0 !important;
+        font-size: 11px !important;
     }
 
     html {
@@ -56,6 +83,7 @@ body {
         display: flex !important;
         flex-wrap: nowrap !important;
         align-items: center !important;
+        margin-bottom: 10px !important;
     }
 
         .print-content .row.encabezado .col-md-3 {
@@ -80,12 +108,13 @@ body {
             margin-right: auto !important;
         }
 
-    /* --- REMITENTE --- */
+    /* --- REMITENTE / DESTINATARIO --- */
     .print-content .row.datos-remitente,
     .print-content .row.datos-destinatario {
         display: flex !important;
         justify-content: space-between !important;
         flex-wrap: nowrap !important;
+        margin-bottom: 10px !important;
     }
 
         .print-content .row.datos-remitente .col-md-6,
@@ -94,13 +123,98 @@ body {
         }
 
     /* --- TABLA --- */
-    table {
-        page-break-inside: avoid !important;
+    .print-content table {
+        width: 100%;
+        border-collapse: collapse;
+        page-break-inside: auto;
         table-layout: fixed;
         word-wrap: break-word;
+        font-size: 9px !important;
+        line-height: 1.2;
+        /*margin-bottom: 30mm;*/ /* Espacio para firmas */
     }
 
-    /* --- OTROS --- */
+        .print-content table th,
+        .print-content table td {
+            padding: 3px 4px !important;
+            border: 1px solid #ddd;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .print-content table thead {
+            display: table-header-group;
+            background-color: #f8f9fa;
+        }
+
+        .print-content table tr {
+            page-break-inside: avoid;
+        }
+
+        /* Columnas específicas */
+        .print-content table th:nth-child(1),
+        .print-content table td:nth-child(1) {
+            width: 4% !important; /* Número ítem */
+            text-align: center;
+        }
+
+        .print-content table th:nth-child(2),
+        .print-content table td:nth-child(2) {
+            width: 25% !important; /* Descripción */
+        }
+
+        .print-content table th:nth-child(3),
+        .print-content table td:nth-child(3) {
+            width: 15% !important; /* Serial */
+        }
+
+        .print-content table th:nth-child(4),
+        .print-content table td:nth-child(4) {
+            width: 15% !important; /* Usuario */
+        }
+
+        .print-content table th:nth-child(5),
+        .print-content table td:nth-child(5) {
+            width: 7% !important; /* Cantidad */
+            text-align: center;
+        }
+
+        .print-content table th:nth-child(6),
+        .print-content table td:nth-child(6) {
+            width: 25% !important; /* Detalle */
+        }
+
+        .print-content table th:nth-child(7),
+        .print-content table td:nth-child(7) {
+            width: 15% !important; /* Recibido Por */
+        }
+
+    /* --- SECCIÓN FIRMAS --- */
+    .firma-final {
+        position: static;
+        bottom: 10mm;
+        left: 10mm;
+        right: 10mm;
+        display: flex !important;
+        justify-content: space-between;
+        font-size: 11px !important;
+        /*border-top: 1px solid #000;*/
+        padding-top: 10px;
+    }
+
+        .firma-final .col-6 {
+            width: 48% !important;
+        }
+
+            .firma-final .col-6:first-child {
+                text-align: left;
+            }
+
+            .firma-final .col-6:last-child {
+                text-align: right;
+            }
+
+    /* --- HR y focos --- */
     hr {
         border-top: 1px solid #000 !important;
         margin: 5px 0 !important;
@@ -111,5 +225,12 @@ body {
     .btn:focus, .btn:active:focus,
     .form-control:focus, .form-check-input:focus {
         box-shadow: none !important;
+    }
+
+    /* Fuerza a mostrar las firmas */
+    .firma-final {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }

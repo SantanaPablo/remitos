@@ -22,3 +22,4 @@ C:\Users\USUARIO\Desktop\Remitos\Dominio\obj\Release\net8.0\Dominio.dll
 C:\Users\USUARIO\Desktop\Remitos\Dominio\obj\Release\net8.0\refint\Dominio.dll
 C:\Users\USUARIO\Desktop\Remitos\Dominio\obj\Release\net8.0\Dominio.pdb
 C:\Users\USUARIO\Desktop\Remitos\Dominio\obj\Release\net8.0\ref\Dominio.dll
+C:\Users\USUARIO\Desktop\Remitos\Dominio\obj\Release\net8.0\Dominio.sourcelink.json

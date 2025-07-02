@@ -28,3 +28,4 @@ C:\Users\USUARIO\Desktop\Remitos\Negocio\obj\Release\net8.0\Negocio.dll
 C:\Users\USUARIO\Desktop\Remitos\Negocio\obj\Release\net8.0\refint\Negocio.dll
 C:\Users\USUARIO\Desktop\Remitos\Negocio\obj\Release\net8.0\Negocio.pdb
 C:\Users\USUARIO\Desktop\Remitos\Negocio\obj\Release\net8.0\ref\Negocio.dll
+C:\Users\USUARIO\Desktop\Remitos\Negocio\obj\Release\net8.0\Negocio.sourcelink.json

@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\BuscadorExcel\**" />
+    <Content Remove="wwwroot\BuscadorExcel\**" />
+    <EmbeddedResource Remove="wwwroot\BuscadorExcel\**" />
+    <None Remove="wwwroot\BuscadorExcel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="itext" Version="9.2.0" />
     <PackageReference Include="itext7" Version="9.2.0" />
     <PackageReference Include="itext7.licensekey" Version="3.1.6" />

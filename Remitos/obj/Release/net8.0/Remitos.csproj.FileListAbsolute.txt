@@ -176,3 +176,7 @@ C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\Remitos.pdb
 C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\Remitos.genruntimeconfig.cache
 C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\ref\Remitos.dll
 C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\Remitos.sourcelink.json
+C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\rpswa.dswa.cache.json
+C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\rjimswa.dswa.cache.json
+C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\USUARIO\Desktop\Remitos\Remitos\obj\Release\net8.0\rjsmcshtml.dswa.cache.json

@@ -40,7 +40,6 @@
                 <strong>Aerolíneas Argentinas S.A.</strong><br />
                 Aeroparque Jorge Newbery - Av. Costanera Rafael Obrigado S/N<br />
                 CP 1425 - Ciudad Autónoma de Buenos Aires<br />
-                Provincia de Bs. As.
             </div>
             <div class="col-md-6 text-end">
                 <div>C.U.I.T N° 30-64140555-4</div>
@@ -76,14 +75,14 @@
     </div> *@
 
  @*    <h4>Ítems</h4> *@
-    <table class="table table-bordered">
+    <table class="table table-striped table-bordered">
         <thead class="table-light">
             <tr>
                 <th>#</th>
                 <th>Descripción</th>
                 <th>Serial</th>
                 <th>Usuario</th>
-                <th>Cantidad</th>
+                <th>Cant.</th>
                 <th>Detalle</th>
                 <th>Recibido Por</th>
             </tr>
@@ -103,7 +102,14 @@
             }
         </tbody>
     </table>
-
+    <div class="row firma-final">
+        <div class="col-6">
+            <strong>N° Precinto:</strong> ______________________
+        </div>
+        <div class="col-6 text-end">
+            <strong>Recibí Conforme:</strong> ______________________
+        </div>
+    </div>
     <div class="mt-4 no-print">
         @* <a asp-page="Index" class="btn btn-outline-secondary">
             <i class="bi bi-arrow-left"></i> Volver a la lista
@@ -118,3 +124,5 @@
         </a> *@
     </div>
 </div>
+
+

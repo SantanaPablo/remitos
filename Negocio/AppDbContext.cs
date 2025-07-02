@@ -13,6 +13,9 @@ namespace Negocio
 
         public DbSet<NotaSalida> NotasSalida { get; set; }
         public DbSet<ItemSalida> ItemsSalida { get; set; }
+        public DbSet<NotaEntrada> NotasEntrada { get; set; }
+        public DbSet<ItemEntrada> ItemsEntrada { get; set; }
+
         public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,6 +43,16 @@ namespace Negocio
                 .HasOne(i => i.NotaSalida)
                 .WithMany(n => n.Items)
                 .HasForeignKey(i => i.NotaSalidaId);
+
+            modelBuilder.Entity<NotaEntrada>()
+               .HasOne(n => n.Autorizante)
+               .WithMany()
+               .HasForeignKey(n => n.AutorizanteId);
+
+            modelBuilder.Entity<ItemEntrada>()
+                .HasOne(i => i.NotaEntrada)
+                .WithMany(n => n.Items)
+                .HasForeignKey(i => i.NotaEntradaId);
 
             base.OnModelCreating(modelBuilder);
         }
