@@ -22,7 +22,7 @@ body {
 }
 
 /* --- SECCIÓN FIRMAS --- */
-.print-content .row.firma-final {
+.row.firma-final {
     display: none;
     justify-content: space-between !important;
     flex-wrap: nowrap !important;
@@ -30,7 +30,7 @@ body {
     font-size: 11px !important;
 }
 
-    .print-content .row.firma-final .col-6 {
+.row.firma-final .col-6 {
         width: 48% !important;
     }
 
@@ -63,8 +63,20 @@ body {
     .print-content, .print-content * {
         visibility: visible;
     }
-
+        /* Entradas y salidas */
+        .print-content2, .print-content2 * {
+            visibility: visible;
+        }
     .print-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        font-size: 11px !important;
+    }
+    .print-content2 {
         position: absolute;
         left: 0;
         top: 0;

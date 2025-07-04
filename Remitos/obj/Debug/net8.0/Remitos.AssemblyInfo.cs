@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Remitos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8adbfbc4db2490bfd515d6d4766a0d3c29b36718")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d26ae0a48e822e67c963e291888741bde80fc27")]
 [assembly: System.Reflection.AssemblyProductAttribute("Remitos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Remitos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

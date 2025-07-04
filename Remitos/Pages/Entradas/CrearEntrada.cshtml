@@ -1,0 +1,106 @@
+﻿@page
+@model CrearEntradaModel
+@{
+    ViewData["Title"] = "Crear Entrada";
+}
+<partial name="_ValidationScriptsPartial" />
+<vc:validation-summary />
+
+<h2>Crear Entrada</h2>
+<div class="card p-4 mb-4 shadow-sm">
+    <form method="post" id="formCrearNota">
+        <!-- Eliminamos el campo oculto handler -->
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">Fecha</label>
+                <input asp-for="Nota.Fecha" type="date" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Dirigido A</label>
+                <input asp-for="Nota.DirigidaA" class="form-control" />
+                <span asp-validation-for="Nota.DirigidaA" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+                <div class="form-check mt-3">
+                    <input asp-for="Nota.Recibido" class="form-check-input" type="checkbox" />
+                    <label class="form-check-label" for="Nota_Recibido">Recibido</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Técnico</label>
+                <input asp-for="Nota.Tecnico" class="form-control" list="tecnicosList" />
+                <span asp-validation-for="Nota.Tecnico" class="text-danger"></span>
+                <datalist id="tecnicosList">
+                    @foreach (var nombre in Model.Tecnicos)
+                    {
+                        <option value="@nombre"></option>
+                    }
+                </datalist>
+            </div>
+        </div>
+
+        <h5 class="mt-4"><i class="bi bi-box-seam"></i> Ítems de salida</h5>
+        <div class="row mb-3">
+            <div class="mt-4 d-flex justify-content-between">
+                <button type="submit" formaction="?handler=AddItem" class="btn btn-outline-secondary" disabled="@(Model.Items.Count >= 30)">
+                    <i class="bi bi-plus-circle"></i> Agregar Ítem
+                </button>
+                <button id="btnConfirmarGuardarSalida" type="button" class="btn btn-success">
+                    <i class="bi bi-save"></i> Guardar Nota
+                </button>
+            </div>
+        </div>
+
+        @for (int i = 0; i < Model.Items.Count; i++)
+        {
+            <div class="row mb-2 align-items-end border-bottom pb-2">
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].Unidad" type="number" class="form-control" placeholder="Unidad" />
+                        <span asp-validation-for="Items[@i].Unidad" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].Equipo" class="form-control" placeholder="Equipo" />
+                        <span asp-validation-for="Items[@i].Equipo" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].Serial" class="form-control" placeholder="Serial" />
+                        <span asp-validation-for="Items[@i].Serial" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].Usuario" class="form-control" placeholder="Usuario" />
+                        <span asp-validation-for="Items[@i].Usuario" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].SD" class="form-control" placeholder="SD" />
+                        <span asp-validation-for="Items[@i].SD" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col-auto">
+                    <button type="submit" formaction="?handler=RemoveItem&index=@i" class="btn btn-outline-danger">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        }
+
+
+    </form>
+</div>

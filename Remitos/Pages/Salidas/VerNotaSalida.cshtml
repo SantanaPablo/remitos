@@ -1,0 +1,58 @@
+﻿@page "{id:int}"
+@model VerNotaSalidaModel
+@{
+    ViewData["Title"] = "Detalle de Nota de Salida";
+}
+<button class="no-print btn btn-secondary mb-3" onclick="window.print()">
+    <i class="bi bi-printer"></i> Imprimir
+</button>
+<div class="print-content2">
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Detalle de Nota de Salida</h2>
+        <img src="~/pdf/logo.png" alt="Logo" style="max-height: 60px;" />
+    </div>
+    <div>
+        <p><strong>Fecha:</strong> @Model.Nota.Fecha.ToString("dd-MM-yyyy")</p>
+        <p><strong>Dirigido A:</strong> @Model.Nota.DirigidaA</p>
+        <p><strong>Técnico:</strong> @Model.Nota.Tecnico</p>
+        <p><strong>Autorizante:</strong> @Model.Usuario?.Nombre</p>
+    </div>
+
+    <h4>Ítems</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Unidad</th>
+                <th>Equipo</th>
+                <th>Serial</th>
+                <th>Usuario</th>
+                <th>SD</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Unidad</td>
+                    <td>@item.Equipo</td>
+                    <td>@item.Serial</td>
+                    <td>@item.Usuario</td>
+                    <td>@item.SD</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row firma-final">
+        <div class="col-3">
+            <strong>Autorizante:</strong> @Model.Usuario?.Nombre
+        </div>
+        <div class="col-3">
+            <strong>Recibí Conforme:</strong>
+        </div>
+    </div>
+    @* <form method="post" asp-page-handler="GenerarPdf">
+    <input type="hidden" name="id" value="@Model.Nota.Id" />
+    <button type="submit" class="btn btn-primary">Descargar PDF</button>
+</form> *@
+</div>

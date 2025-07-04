@@ -1,0 +1,106 @@
+﻿@page "{id:int}"
+@model EditarRemitoModel
+@{
+    ViewData["Title"] = "Editar Remito";
+}
+
+<h2><i class="bi bi-pencil-square"></i> Editar Remito</h2>
+
+<div class="card p-4 mb-4 shadow-sm">
+    <form method="post" id="formCrearRemito">
+        <input type="hidden" asp-for="Remito.Id" />
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">Número</label>
+                <input asp-for="Remito.Numero" class="form-control" />
+                <span asp-validation-for="Remito.Numero" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Fecha</label>
+                <input asp-for="Remito.Fecha" type="date" class="form-control" />
+                <span asp-validation-for="Remito.Fecha" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Destino</label>
+                <input asp-for="Remito.Destino" class="form-control" />
+                <span asp-validation-for="Remito.Destino" class="text-danger"></span>
+            </div>
+        </div>
+
+        <h5 class="mt-4"><i class="bi bi-box-seam"></i> Ítems del Remito</h5>
+
+        <div class="row mb-3">
+            <div class="mt-4 d-flex justify-content-between">
+                <button type="submit" formaction="?handler=AddItem" class="btn btn-outline-secondary" disabled="@(Model.Items.Count >= 25)">
+                    <i class="bi bi-plus-circle"></i> Agregar Ítem
+                </button>
+
+                <button id="btnConfirmarGuardarRemito" type="button" class="btn btn-success">
+                    <i class="bi bi-save"></i> Guardar Remito
+                </button>
+            </div>
+        </div>
+
+        @for (int i = 0; i < Model.Items.Count; i++)
+        {
+            <div class="row mb-2 align-items-end border-bottom pb-2">
+                <div class="col-1">
+                    <div class="form-group">
+                        <input type="text" class="form-control-plaintext" readonly value="@(i + 1)" />
+                        <input type="hidden" asp-for="Items[@i].numero_item" value="@(i + 1)" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].descripcion" class="form-control" placeholder="Descripción" />
+                        <span asp-validation-for="Items[@i].descripcion" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].serial" class="form-control" placeholder="Serial" />
+                        <span asp-validation-for="Items[@i].serial" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].usuario" class="form-control" placeholder="Usuario" />
+                        <span asp-validation-for="Items[@i].usuario" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col-1">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].cantidad" type="number" class="form-control" placeholder="Cantidad" />
+                        <span asp-validation-for="Items[@i].cantidad" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].detalle" class="form-control" placeholder="Detalle" />
+                        <span asp-validation-for="Items[@i].detalle" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <input asp-for="Items[@i].recibido_por" class="form-control" placeholder="Recibido por" />
+                        <span asp-validation-for="Items[@i].recibido_por" class="text-danger small d-block" style="min-height: 1em;"></span>
+                    </div>
+                </div>
+
+                <div class="col-auto">
+                    <button type="submit" formaction="?handler=RemoveItem&index=@i" class="btn btn-outline-danger">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        }
+
+
+    </form>
+</div>
+

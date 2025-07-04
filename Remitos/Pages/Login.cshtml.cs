@@ -27,7 +27,7 @@ public class LoginModel : PageModel
     {
         if (User.Identity.IsAuthenticated)
         {
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Salidas/Index");
         }
 
         return Page();
@@ -58,6 +58,6 @@ public class LoginModel : PageModel
 
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-        return RedirectToPage("/Index");
+        return RedirectToPage("/Salidas/Index");
     }
 }
