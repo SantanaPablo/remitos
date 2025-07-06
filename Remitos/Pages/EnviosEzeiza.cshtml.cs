@@ -18,6 +18,19 @@ public class EnviosEzeizaModel : PageModel
     public bool BusquedaRealizada { get; set; }
     public string MensajeError { get; set; }
 
+    public IActionResult OnGetDescargarArchivo(string nombre)
+    {
+        if (string.IsNullOrWhiteSpace(nombre))
+            return BadRequest("Nombre de archivo inválido.");
+
+        var rutaArchivo = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "BuscadorExcel", "archivos", nombre);
+
+        if (!System.IO.File.Exists(rutaArchivo))
+            return NotFound("Archivo no encontrado.");
+
+        var bytes = System.IO.File.ReadAllBytes(rutaArchivo);
+        return File(bytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", nombre);
+    }
     public async Task<IActionResult> OnPostAsync()
     {
         BusquedaRealizada = true;

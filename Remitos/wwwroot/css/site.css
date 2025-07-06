@@ -146,6 +146,16 @@ body {
         /*margin-bottom: 30mm;*/ /* Espacio para firmas */
     }
 
+    .print-content2 table {
+        width: 100%;
+        border-collapse: collapse;
+        page-break-inside: auto;
+        table-layout: fixed;
+        word-wrap: break-word;
+        font-size: 11px !important;
+        line-height: 1.2;
+        /*margin-bottom: 30mm;*/ /* Espacio para firmas */
+    }
         .print-content table th,
         .print-content table td {
             padding: 3px 4px !important;
@@ -203,7 +213,7 @@ body {
 
     /* --- SECCIÓN FIRMAS --- */
     .firma-final {
-        position: static;
+        position: fixed;
         bottom: 10mm;
         left: 10mm;
         right: 10mm;

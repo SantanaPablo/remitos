@@ -6,12 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="wwwroot\BuscadorExcel\**" />
-    <Content Remove="wwwroot\BuscadorExcel\**" />
-    <EmbeddedResource Remove="wwwroot\BuscadorExcel\**" />
-    <None Remove="wwwroot\BuscadorExcel\**" />
-  </ItemGroup>
+ 
 
   <ItemGroup>
     <PackageReference Include="itext" Version="9.2.0" />

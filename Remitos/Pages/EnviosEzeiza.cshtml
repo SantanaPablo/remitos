@@ -46,6 +46,12 @@
                     <td>@item.serial_encontrado</td>
                     <td>@item.reserva_sap</td>
                     <td>@item.cantidad</td>
+                    <td>
+                        <a asp-page="./EnviosEzeiza" asp-page-handler="DescargarArchivo" asp-route-nombre="@item.archivo"
+                           class="btn btn-sm btn-outline-success" title="Descargar archivo Excel">
+                            <i class="bi bi-save"></i> 💾 Guardar
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>
