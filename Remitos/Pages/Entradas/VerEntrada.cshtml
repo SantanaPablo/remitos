@@ -10,7 +10,7 @@
 
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <h2>Detalle de Entrada</h2>
-        <img src="~/pdf/logo.png" alt="Logo" style="max-height: 60px;" />
+        <img src="~/pdf/logo.png" alt="Logo" style="max-height: 120x;" />
     </div>
     <div>
         <p><strong>Fecha:</strong> @Model.Nota.Fecha.ToString("dd-MM-yyyy")</p>
@@ -43,7 +43,14 @@
             }
         </tbody>
     </table>
-
+    <div class="row firma-finalnota">
+        <div class="col-3">
+            <strong>Autorizante:</strong> @Model.Usuario?.Nombre
+        </div>
+        <div class="col-3">
+            <strong>Recibí Conforme:</strong>
+        </div>
+    </div>
     
 
     @* <form method="post" asp-page-handler="GenerarPdf">
