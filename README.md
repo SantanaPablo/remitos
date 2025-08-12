@@ -1,6 +1,6 @@
 # 📦 Sistema de Gestión de Remitos
 
-Aplicación para **gestionar entradas y salidas de equipos** entre distintos sectores (T4, Ezeiza y otros sectores de Aeroparque), con generación automática de **PDFs y etiquetas** mediante BarTender, y registro en **MySQL**.
+Aplicación para **gestionar entradas y salidas de equipos** entre distintos sectores (Ezeiza y otros sectores de Aeroparque), con generación automática de **PDFs y etiquetas** mediante BarTender, y registro en **MySQL**.
 
 ## 🚀 Características principales
 - **Generar Remito** desde edificion central hacia Ezeiza con PDF y etiqueta.
